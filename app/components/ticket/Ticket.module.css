@@ -1,0 +1,28 @@
+.ticket {
+  width: 250px;
+  height: 100px;
+  position: relative;
+  background-color: white;
+  border: 2px dashed #333;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.circle {
+  z-index: 22;
+  width: 50px;
+  height: 50px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.right {
+  right: -10%;
+  top: 30%;
+}
+.left {
+  left: -10%;
+  top: 30%;
+}
