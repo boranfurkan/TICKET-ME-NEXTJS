@@ -1,7 +1,9 @@
 import Ticket from "../ticket/Ticket";
+import { getTickets } from "@/app/lib/helper";
 
 
-export default async function TicketList({ tickets }) {
+export default async function TicketList() {
+    const tickets = await getTickets();
     return (
         <>
             {tickets.map((ticket) => (

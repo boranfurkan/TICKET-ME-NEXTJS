@@ -1,20 +1,9 @@
 import TicketList from "../components/ticket-list/Ticket-list"
-import Loading from '../loading'
 import { Suspense } from "react"
+import Loading from "../loading"
 import Link from "next/link"
 
-async function getTickets() {
-    const res = await fetch('http://localhost:4000/tickets', {
-        next: {
-            revalidate: 0 // use 0 to opt out of using cache
-        }
-    })
-    return res.json()
-}
-
-
-export default async function Tickets() {
-    const tickets = await getTickets()
+export default function Tickets() {
     return (
         <main>
             <nav>
@@ -27,7 +16,7 @@ export default async function Tickets() {
                 </Link>
             </nav>
             <Suspense fallback={<Loading />}>
-                <TicketList tickets={tickets} />
+                <TicketList />
             </Suspense>
         </main>
     )

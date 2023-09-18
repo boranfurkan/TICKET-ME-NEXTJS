@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation"
 import Ticket from "@/app/components/ticket/Ticket"
+import { getTicket } from "@/app/lib/helper"
 
 export const dynamicParams = true // default val = true
 
@@ -11,20 +11,6 @@ export async function generateStaticParams() {
     return tickets.map((ticket) => ({
         id: ticket.id
     }))
-}
-
-async function getTicket(id) {
-    const res = await fetch(`http://localhost:4000/tickets/${id}`, {
-        next: {
-            revalidate: 60
-        }
-    })
-
-    if (!res.ok) {
-        notFound()
-    }
-
-    return res.json()
 }
 
 
